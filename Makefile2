@@ -1,0 +1,24 @@
+CFLAGS = -g -std=c99 -Wall -I ./include
+
+.PHONY: clean doc
+
+doc:
+	doxygen conf/doxygen.conf
+
+%.o: ./src/%.c
+	$(CC) $(CFLAGS) -o $@ -c $^
+
+app-conway: app-conway.o
+	$(CC) $(CFLAGS) -o $@ $^
+
+launch-app-conway: app-conway
+	./app-conway
+
+generate-animation:
+	convert -delay 10 -loop 0 out/*.ppm out/animation.gif
+
+add-files-svn:
+	svn add --force src/*.c include/*.h data/*.txt --auto-props --parents --depth infinity -q
+
+clean:
+	rm -f *.o read-file conway-naive write-fact

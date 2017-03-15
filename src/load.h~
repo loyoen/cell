@@ -1,0 +1,3 @@
+#include "cell.h"
+
+Solution* load_grid(const char* filename);
