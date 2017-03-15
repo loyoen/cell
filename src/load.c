@@ -17,7 +17,6 @@ Solution* load_grid(char* filename)
 
     int width = 0, height = 0, step = 0;
     int fscanf_result = fscanf(p_file, "%d %d", &width, &height);
-    printf("fresult=%d width=%d height=%d\n", fscanf_result, width, height);
     if (fscanf_result != 2)
     {
         fclose(p_file);
@@ -38,8 +37,6 @@ Solution* load_grid(char* filename)
     pSolution->Head = NULL;
     Cell_Node* pTail = NULL;
 
-    printf("step = %d\n", step);
-    
     int line_index = 0, column_index = 0;
     char c_result;
     for (line_index = 0; line_index < height; line_index++)
