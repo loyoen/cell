@@ -5,7 +5,6 @@ CFLAGS = -g -std=c99 -Wall -I ./include
 app-conway: app-conway.o cell.o load.o generate-image.o
 	$(CC) $(CFLAGS) -o $@ $^
 
-
 %.o: ./src/%.c
 	$(CC) $(CFLAGS) -o $@ -c $^
 

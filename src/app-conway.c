@@ -19,7 +19,7 @@ int main(int argc, char*argv[])
     char filename[64] = {0};
     for (step_index = 0; step_index < pSolution->steps; step_index++)
     {
-        sprintf(filename, "./out/%d.ppm", step_index);
+        sprintf(filename, "./out/%03d.ppm", step_index+1);
         write_image(filename, pSolution);
         next_generation(pSolution);
     }
